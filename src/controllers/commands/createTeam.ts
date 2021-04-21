@@ -11,4 +11,4 @@ export const execute = async (newTeam: NewTeam): Promise<void> => {
 	};
 
 	TeamModel.create(teamToCreate);
-}
+};

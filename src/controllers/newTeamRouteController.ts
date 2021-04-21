@@ -9,4 +9,4 @@ export const start = async (req: Request, res: Response): Promise<void> => {
 export const create = async (req: Request, res: Response): Promise<void> => {
 	Helper.execute(req.body);
 	return res.render(ViewNameLookup.MainMenu);
-}
+};

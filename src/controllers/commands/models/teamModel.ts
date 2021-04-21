@@ -1,5 +1,4 @@
-  
-import Sequelize from "sequelize";
+  import Sequelize from "sequelize";
 import { DatabaseConnection } from "./databaseConnection";
 import { Model, DataTypes, InitOptions, ModelAttributes, ModelAttributeColumnOptions } from "sequelize";
 
