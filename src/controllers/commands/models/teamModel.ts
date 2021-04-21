@@ -13,12 +13,12 @@ export class TeamModel extends Model {
 TeamModel.init(
 	<ModelAttributes>{
 		teamId: <ModelAttributeColumnOptions>{
-			field: "teamID",
+			field: "teamid",
 			type: Sequelize.UUID,
 			primaryKey: true
 		},
 		teamName: <ModelAttributeColumnOptions>{
-			field: "teamName",
+			field: "teamname",
 			type: new DataTypes.STRING(128)
 		},
 		nickname: <ModelAttributeColumnOptions>{
@@ -33,6 +33,6 @@ TeamModel.init(
 		timestamps: false,
 		freezeTableName: true,
 		sequelize: DatabaseConnection,
-		tableName: "teamTable"
+		tableName: "teamtable"
 	}
 );
