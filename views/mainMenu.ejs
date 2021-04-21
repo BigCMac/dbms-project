@@ -1,0 +1,52 @@
+<html>
+
+<head>
+	<title>Sports - Menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" type="text/css" href="/styles/master.css">
+
+	<script type="text/javascript" src="/scripts/master.js" defer></script>
+	<script type="text/javascript" src="/scripts/mainMenu.js" defer></script>
+</head>
+
+<body>
+
+	<div class="header">
+		<h1 class="primary-message">Main Menu</h1>
+	</div>
+		
+	<div id="main" class="main">
+		<div class="mainMenuActionsWrapper">
+			<br />
+			<button id="newTeam" type="button" class="action">Create New Team</button>
+			<br /><br />
+			<button id="newGame" type="button" class="action">Create New Game</button>
+			<br /><br />
+			<button id="newResult" type="button" class="action">Enter Game Results</button>
+			<br /><br />
+			<button id="viewTeams" type="button" class="action">View Teams</button>
+			<br /><br />
+			<button id="viewGames" type="button" class="action">View Games by Team</button>
+			<br /><br />
+			<button id="viewResults" type="button" class="action">View Games by Date</button>
+		</div>
+	</div>
+
+	<div class="hidden">
+		<input type="checkbox" id="isRefreshed" class="hidden">
+		<script type="text/javascript">
+			window.onunload = function() {
+				const isRefreshedElement = document.getElementById("isRefreshed");
+				if(!isRefreshedElement.checked) {
+					isRefreshedElement.checked = true;
+				} else {
+					isRefreshedElement.checked = false;
+					location.reload();
+				}
+			}
+		</script>
+	</div>
+</body>
+
+</html>

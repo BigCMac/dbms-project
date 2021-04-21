@@ -1,0 +1,42 @@
+<html>
+
+	<head>
+		<title>Sports - New Team</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+		<link rel="stylesheet" type="text/css" href="/styles/master.css">
+	
+		<script type="text/javascript" src="/scripts/master.js" defer></script>
+		<script type="text/javascript" src="/scripts/newTeam.js" defer></script>
+	</head>
+	
+	<body>
+	
+		<div class="header">
+			<h1 class="primary-message">Create New Team</h1>
+		</div>
+			
+		<div id="main" class="main">
+			<form action="/newTeam" method="POST" onsubmit="" class="inputContent">
+				<div>
+					<input id="teamId" type="text" name="teamId" placeholder="Team ID" class="update" value="" />
+				</div>
+				<div>
+					<input id="teamName" type="text" name="teamName" placeholder="Team Name" class="update" value="" />
+				</div>
+				<div>
+					<input id="nickname" type="text" name="nickname" placeholder="Team Nickname" class="update" value="" />
+				</div>
+				<div>
+					<input id="Rank" type="number" name="Rank" placeholder="Team Rank" class="update" value="" />
+				</div>
+				<br /><br />
+				<div>
+					<input type="submit" value="Sign In" class="submit" />
+				</div>
+			</form>
+		</div>
+	
+	</body>
+	
+	</html>
