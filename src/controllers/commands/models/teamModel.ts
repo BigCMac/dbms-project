@@ -6,7 +6,7 @@ export class TeamModel extends Model {
 	public teamId!: string;
 	public teamName!: string;
 	public nickname!: string;
-	public rank!: string;
+	public rank!: number;
 }
 
 TeamModel.init(

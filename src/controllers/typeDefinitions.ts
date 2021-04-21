@@ -3,7 +3,7 @@ export interface NewTeam {
 	teamId: string;
 	teamName: string;
 	nickname: string;
-	rank: string;
+	rank: number;
 }
 // End request object definitions
 
