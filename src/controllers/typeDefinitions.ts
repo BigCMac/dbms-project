@@ -1,6 +1,6 @@
 // Request object definitions
 export interface NewTeam {
-	teamId: string;
+	teamId: number;
 	teamName: string;
 	nickname: string;
 	rank: number;
