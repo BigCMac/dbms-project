@@ -2,12 +2,13 @@ import Sequelize from "sequelize";
 
 const defaultMaximumPoolSize: number = 5;
 
-export const DatabaseConnection: Sequelize.Sequelize =
+export const DatabaseConnection =
 	new Sequelize.Sequelize(
 		<string>process.env.DATABASE_URL,
 		<Sequelize.Options>{
-			dialect:  "postgres",
+			dialect: "postgres",
 			protocol: "postgres",
+			dialectOptions: { ssl: true },
 			omitNull: true,
 			freezeTableName: true,
 			pool: <Sequelize.PoolOptions>{
@@ -18,5 +19,6 @@ export const DatabaseConnection: Sequelize.Sequelize =
 		});
 
 export const createTransaction = async (): Promise<Sequelize.Transaction> => {
+	console.log("transacting");
 	return DatabaseConnection.transaction();
 };

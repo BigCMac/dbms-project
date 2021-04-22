@@ -1,18 +1,26 @@
 import { TeamModel } from "./models/teamModel";
 import { NewTeam } from "../typeDefinitions";
+import * as DatabaseConnection from "./models/databaseConnection";
 
-export const execute = async (newTeam: NewTeam): Promise<void> => {
+export const execute = async (req: NewTeam): Promise<void> => {
 
 	const teamToCreate: TeamModel = <TeamModel>{
-		teamId: newTeam.teamId,
-		teamName: newTeam.teamName,
-		nickname: newTeam.nickname,
-		rank: newTeam.rank
+		teamId: req.teamId,
+		teamName: req.teamName,
+		nickname: req.nickname,
+		rank: req.rank
 	};
-	console.log("before sync");
-	TeamModel.sync().then(() => {
-		console.log("after sync");
-		TeamModel.create(teamToCreate);
-		console.log("after create");
-	});
+
+	const t = await DatabaseConnection.createTransaction();
+
+	console.log("transacted and readdy to create");
+
+	try {
+		const teamCreated = await TeamModel.create({teamToCreate}, { transaction: t });
+		await t.commit();
+		console.log("something occured");
+	} catch (error) {
+		console.log(" and it was bad");
+		await t.rollback();
+	}
 };

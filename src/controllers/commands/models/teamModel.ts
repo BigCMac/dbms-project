@@ -1,6 +1,6 @@
-import Sequelize from "sequelize";
 import { DatabaseConnection } from "./databaseConnection";
-import { Model, InitOptions, ModelAttributes, ModelAttributeColumnOptions } from "sequelize";
+import { Model, DataTypes } from "sequelize";
+
 
 export class TeamModel extends Model {
 	public teamId!: number;
@@ -9,32 +9,31 @@ export class TeamModel extends Model {
 	public rank!: number;
 }
 
-TeamModel.init(
-	<ModelAttributes>{
-		teamId: <ModelAttributeColumnOptions>{
+TeamModel.init({
+		teamId: {
 			field: "teamid",
-			type: Sequelize.INTEGER,
+			type: DataTypes.INTEGER,
 			unique: true,
 			primaryKey: true,
 			allowNull: false
 		},
-		teamName: <ModelAttributeColumnOptions>{
+		teamName: {
 			field: "teamname",
-			type: Sequelize.STRING,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
-		nickname: <ModelAttributeColumnOptions>{
+		nickname: {
 			field: "nickname",
-			type: Sequelize.STRING,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
-		rank: <ModelAttributeColumnOptions>{
+		rank: {
 			field: "rank",
-			type: Sequelize.INTEGER,
+			type: DataTypes.INTEGER,
 			allowNull: false
 		}
-	}, <InitOptions>{
-		modelName: "teammodel",
+	}, {
+		modelName: "TeamModel",
 		timestamps: false,
 		freezeTableName: true,
 		sequelize: DatabaseConnection,
